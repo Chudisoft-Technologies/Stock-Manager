@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <h1>{{ isNewSupplier ? 'Add New Supplier' : 'Edit Supplier' }}</h1>
+
+  <!-- Supplier form using Angular Reactive Forms -->
+  <form [formGroup]="supplierForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="supplierName">Name:</label>
+      <input type="text" class="form-control" formControlName="Supplier" id="supplierSupplier">
+    </div>
+    <div class="form-group">
+      <label for="supplierPhone">Phone:</label>
+      <input type="text" class="form-control" formControlName="Phone Number" id="supplierPhone">
+    </div>
+    <div class="form-group">
+      <label for="supplierEmail">Email:</label>
+      <input type="email" class="form-control" formControlName="Email" id="supplierEmail">
+    </div>
+    <div class="form-group">
+      <label for="supplierAddress">Address:</label>
+      <input type="text" class="form-control" formControlName="Address" id="supplierAddress">
+    </div>
+    <button type="submit" class="btn btn-primary">{{ isNewSupplier ? 'Add Supplier' : 'Update Supplier' }}</button>
+  </form>
+</div>

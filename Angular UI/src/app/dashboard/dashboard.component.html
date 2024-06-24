@@ -1,0 +1,57 @@
+<h2 class="bg-light text-center m-4 p-2">Dashboard</h2>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- Item Cards -->
+    <div class="col-lg-4 mb-4" *ngFor="let item of items">
+      <div class="card border-primary border-4 p-0">
+        <h5 class="card-title bg-light p-2 card ">{{ item.name }}</h5>
+        <div class="card-body p-2">
+          <p class="card-text">Total: {{ item.total }}</p>
+        </div>
+        <div class="card-footer border-top">
+          <div class="row gap-2 justify-content-end">
+              <!-- Button to create a new item -->
+              <a [href]="'./' + item.route" class="btn btn-sm btn-primary mr-2">New {{ item.name }}</a>
+              <!-- Button to navigate to the list page -->
+              <a [href]="'./' + item.routes" class="btn btn-sm btn-secondary">{{ item.name }} List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- List group to display items -->
+  <h4 class="bg-light text-center m-4 p-2">Low Stock</h4>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Item</th>
+          <th>Supplier</th>
+          <th>Allocated _Staff</th>
+          <th>Cost</th>
+          <th>Stock Level</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate over filteredItemList array and display each item -->
+        <tr *ngFor="let item of low_stock">
+          <td>{{ item.id }}</td>
+          <td>{{ item.Item }}</td>
+          <td>{{ item.Supplier }}</td>
+          <td>{{ item['Allocated _Staff'] }}</td>
+          <td>{{ item.Cost }}</td>
+          <td>{{ item.Stock_Level }}</td>
+          <td>
+            <a href="/items/edit/{{item._id}}" class="btn btn-sm btn-primary me-2">Update</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+</div>

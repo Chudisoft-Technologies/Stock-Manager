@@ -1,0 +1,60 @@
+<div class="container">
+<div class="row text-white mt-5">
+    <div class="col-12 bg-dark col-lg-6 gradient shadow p-3">
+        <div class="cta-info w-100">
+            <h4 class="display-4 fw-bold">100% Satisfaction Guaranteed</h4>
+            <p class="lh-lg">
+                We place customer satisfaction above all. Kindly take out time to provide the neccessary information on the new system to be developed.
+            </p>
+            <h3 class="display-3--brief">What will be the next step?</h3>
+            <ul class="cta-info__list">
+                <li>We'll discuss it together.</li>
+                <li>We'll prepare the proposal.</li>
+                <li>We'll start work.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6 shadow p-3 pt-5">
+        <div class="form w-100 p-2">
+            <h4 class="display-3--title mb-3">Start your project</h4>
+            <div action="#" class="row">
+                <div class="col-lg-6 col-md mb-3">
+                    <input type="text" placeholder="First Name" 
+                        class="shadow form-control form-control-lg" 
+                        [(ngModel)]="email.FirstName">
+                </div>
+                <div class="col-lg-6 col-md mb-3">
+                    <input type="text" placeholder="Last Name" 
+                        class="shadow form-control form-control-lg" 
+                        [(ngModel)]="email.LastName">
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <input type="email" placeholder="Email address" 
+                        class="shadow form-control form-control-lg" 
+                        [(ngModel)]="email.email">
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <input type="text" placeholder="Title" 
+                        class="shadow form-control form-control-lg" 
+                        [(ngModel)]="email.Title">
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <textarea placeholder="Message" rows="8" 
+                        class="shadow form-control form-control-lg" 
+                        [(ngModel)]="email.message">
+                    </textarea>
+                </div>
+                <div class="text-center d-grid mt-1">
+                    <div>
+                        <label class="text-secondary">{{message}}</label>
+                    </div>
+                    <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3" (click)="SendMessage($event)">
+                        submit
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

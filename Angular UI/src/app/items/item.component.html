@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h1>{{ isNewItem ? 'Add New Item' : 'Edit Item' }}</h1>
+
+  <!-- Item form using Angular Reactive Forms -->
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="itemName">Name:</label>
+      <input type="text" class="form-control" formControlName="Item" id="itemName">
+    </div>
+    <div class="form-group">
+      <label for="itemSupplier">Supplier:</label>
+      <input type="text" class="form-control" formControlName="Supplier" id="itemSupplier">
+    </div>
+    <div class="form-group">
+      <label for="itemallocatedStaff">Allocated Staff:</label>
+      <input type="text" class="form-control" formControlName="Allocated _Staff" id="itemallocatedStaff">
+    </div>
+    <div class="form-group">
+      <label for="itemCost">Cost:</label>
+      <input type="text" class="form-control" formControlName="Cost" id="itemCost">
+    </div>
+    <div class="form-group">
+      <label for="itemstockLevel">stockLevel:</label>
+      <input type="text" class="form-control" formControlName="Stock_Level" id="itemstockLevel">
+    </div>
+    <!-- Add more fields as needed -->
+    <button type="submit" class="btn btn-primary">{{ isNewItem ? 'Add Item' : 'Update Item' }}</button>
+  </form>
+</div>

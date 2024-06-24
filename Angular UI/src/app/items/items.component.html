@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <h1>Item List</h1>
+
+  <!-- Search input field with Bootstrap classes -->
+  <div class="row justify-content-between">
+    <div class="col-md-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchQuery" (input)="filterItemList()" placeholder="Search by name">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-end">
+      <a [href]="'./item'" class="btn btn-sm btn-primary mr-2">New Items</a>
+    </div>
+  </div>
+
+  <!-- List group to display items -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Item</th>
+          <th>Supplier</th>
+          <th>Allocated _Staff</th>
+          <th>Cost</th>
+          <th>Stock Level</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate over filteredItemList array and display each item -->
+        <tr *ngFor="let item of filteredItemList">
+          <td>{{ item.id }}</td>
+          <td>{{ item.Item }}</td>
+          <td>{{ item.Supplier }}</td>
+          <td>{{ item['Allocated _Staff'] }}</td>
+          <td>{{ item.Cost }}</td>
+          <td>{{ item.Stock_Level }}</td>
+          <td>
+            <a href="/items/edit/{{item._id}}" class="btn btn-sm btn-primary me-2">Update</a>
+            <button class="btn btn-sm btn-danger" (click)="deleteItem(item)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+</div>

@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <h1>Supplier List</h1>
+
+  <!-- Search input field with Bootstrap classes -->
+  <div class="row justify-content-between">
+    <div class="col-md-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchQuery" (input)="filterSupplierList()" placeholder="Search by name">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-end">
+      <a [href]="'./supplier'" class="btn btn-sm btn-primary mr-2">New Items</a>
+    </div>
+  </div>
+  
+  <!-- List group to display suppliers -->
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate over filteredSupplierList array and display each supplier -->
+        <tr *ngFor="let supplier of filteredSupplierList">
+          <td>{{ supplier.Supplier }}</td>
+          <td>{{ supplier['Phone Number'] }}</td>
+          <td>{{ supplier.Email }}</td>
+          <td>{{ supplier.Address }}</td>
+          <td>
+            <a href="/suppliers/edit/{{supplier._id}}" class="btn btn-sm btn-primary me-2">Update</a>
+            <button class="btn btn-sm btn-danger" (click)="deleteSupplier(supplier)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+
+</div>

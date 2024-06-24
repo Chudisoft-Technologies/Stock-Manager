@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <h1>PPE List</h1>
+
+  <!-- Search input field with Bootstrap classes -->
+  <div class="row justify-content-between">
+    <div class="col-md-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchQuery" (input)="filterPpeList()" placeholder="Search by name">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-end">
+      <a [href]="'./ppe'" class="btn btn-sm btn-primary mr-2">New Items</a>
+    </div>
+  </div>
+
+  <!-- List group to display PPE items -->
+  <div class="table-responsive">
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>PPE</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate over filteredPPEList array and display each PPE item -->
+        <tr *ngFor="let ppeItem of filteredPpeList">
+          <td>{{ ppeItem.PPE }}</td>
+          <td>{{ ppeItem.Stock }}</td>
+          <td>
+            <a href="/ppes/edit/{{ppeItem._id}}" class="btn btn-sm btn-primary me-2">Update</a>
+            <button class="btn btn-sm btn-danger" (click)="deletePpe(ppeItem)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

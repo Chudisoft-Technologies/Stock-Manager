@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h1>{{ isNewPpe ? 'Add New PPE' : 'Edit PPE' }}</h1>
+
+  <!-- PPE form using Angular Reactive Forms -->
+  <form [formGroup]="ppeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="ppeName">Name:</label>
+      <input type="text" class="form-control" formControlName="PPE" id="ppeName">
+    </div>
+    <div class="form-group">
+      <label for="ppeStock">Stock:</label>
+      <input type="number" class="form-control" formControlName="Stock" id="ppeStock">
+    </div>
+    <button type="submit" class="btn btn-primary">{{ isNewPpe ? 'Add PPE' : 'Update PPE' }}</button>
+  </form>
+</div>
